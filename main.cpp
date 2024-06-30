@@ -134,5 +134,33 @@ public:
 };
 
 int main() {
+    Garage garage;
+
+    // Adding cars to the garage
+    garage.addCar(new Sedan("Toyota", "Camry", 2020, 1000));
+    garage.addCar(new SUV("Ford", "Explorer", 2019, 1500));
+    garage.addCar(new Truck("Volvo", "FH16", 2018, 2000));
+
+    cout << "All Cars in the Garage:" << endl;
+    garage.displayAllCars();
+    cout << endl;
+
+    cout << "Car Types in the Garage:" << endl;
+    garage.displayCarTypes();
+    cout << endl;
+
+    cout << "Maintenance Costs for Cars in the Garage:" << endl;
+    garage.displayMaintenanceCosts();
+    cout << endl;
+
+
+    cout << "Removing the first car (index 0) from the garage..." << endl;
+    garage.removeCar(0);
+    cout << endl;
+
+    cout << "All Cars in the Garage after removal:" << endl;
+    garage.displayAllCars();
+    cout << endl;
+
     return 0;
 }
