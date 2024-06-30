@@ -89,6 +89,50 @@ public:
     }
 };
 
+class Garage {
+private:
+    vector<Car*> cars;
+
+public:
+    ~Garage() {
+        for (auto& car : cars) {
+            delete car;
+        }
+    }
+
+    void addCar(Car* car) {
+        cars.push_back(car);
+    }
+
+    void removeCar(int index) {
+        if (index >= 0 && index < cars.size()) {
+            delete cars[index];
+            cars.erase(cars.begin() + index);
+        } else {
+            cout << "Invalid index!" << endl;
+        }
+    }
+
+    void displayAllCars() const {
+        for (const auto& car : cars) {
+            car->displayDetails();
+        }
+    }
+
+    void displayMaintenanceCosts() const {
+        for (const auto& car : cars) {
+            car->displayDetails();
+            cout << "Maintenance Cost: $" << car->maintenanceCost() << endl;
+        }
+    }
+
+    void displayCarTypes() const {
+        for (const auto& car : cars) {
+            car->displayType();
+        }
+    }
+};
+
 int main() {
     return 0;
 }
