@@ -70,6 +70,24 @@ public:
     }
 };
 
+class Truck : public Car {
+public:
+    Truck(const string& br, const string& mo, int yr, double cost)
+        : Car(br, mo, yr, cost) {}
+
+    void displayType() const override {
+        cout << "This is a truck." << endl;
+    }
+
+    void displayDetails() const override {
+        cout << "Truck - ";
+        Car::displayDetails();
+    }
+
+    double maintenanceCost() const override {
+        return baseCost * 1.8;
+    }
+};
 
 int main() {
     return 0;
