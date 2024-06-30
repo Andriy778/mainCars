@@ -51,6 +51,25 @@ public:
     }
 };
 
+class SUV : public Car {
+public:
+    SUV(const string& br, const string& mo, int yr, double cost)
+        : Car(br, mo, yr, cost) {}
+
+    void displayType() const override {
+        cout << "This is an SUV." << endl;
+    }
+
+    void displayDetails() const override {
+        cout << "SUV - ";
+        Car::displayDetails();
+    }
+
+    double maintenanceCost() const override {
+        return baseCost * 1.5;
+    }
+};
+
 
 int main() {
     return 0;
