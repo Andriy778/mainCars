@@ -31,6 +31,27 @@ public:
     virtual ~Car() {}
 };
 
+// Derived class Sedan
+class Sedan : public Car {
+public:
+    Sedan(const string& br, const string& mo, int yr, double cost)
+        : Car(br, mo, yr, cost) {}
+
+    void displayType() const override {
+        cout << "This is a sedan." << endl;
+    }
+
+    void displayDetails() const override {
+        cout << "Sedan - ";
+        Car::displayDetails();
+    }
+
+    double maintenanceCost() const override {
+        return baseCost * 1.2;
+    }
+};
+
+
 int main() {
     return 0;
 }
